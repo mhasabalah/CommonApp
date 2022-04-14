@@ -1,0 +1,11 @@
+﻿<button class="btn btn-info" @onclick="() => modal.Open()"> <i class="fa fa-info"></i> </button>
+
+<ModalForm @ref="modal">
+    <Title>@nameof(Employee) @Employee.Name details</Title>
+    <Body>
+        <EmployeeForm Employee="Employee" IsDisabled="true" OnValidSubmit="CloseForm"></EmployeeForm>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="false"></DialogTypeComponent>
+    </Footer>
+</ModalForm>

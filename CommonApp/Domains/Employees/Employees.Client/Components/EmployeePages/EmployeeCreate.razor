@@ -1,0 +1,10 @@
+﻿<button class="btn btn-primary" @onclick="() => modal.Open()">New Employee</button>
+<ModalForm @ref="modal">
+    <Title>Create new @typeof(EmployeeViewModel).Name</Title>
+    <Body>
+        <EmployeeForm Employee="employee" OnValidSubmit="Create" FormId="@formId"/>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>
+    </Footer>
+</ModalForm>
