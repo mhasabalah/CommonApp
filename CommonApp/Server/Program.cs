@@ -1,11 +1,25 @@
-using Microsoft.AspNetCore.ResponseCompression;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container. 
+builder.Services.AddInstallerFromReferancedAssemblies(builder.Configuration, typeof(Program).Assembly, "*.Server.dll");
+
+builder.Services.AddDbContext<ApplicationContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), builder => builder.MigrationsAssembly(typeof(Program).Assembly.FullName))
+        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors();
+});
+
+
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddAutoMapper(config =>
+{
+    config.AllowNullCollections = true;
+}, typeof(Program).Assembly);
 
 var app = builder.Build();
 
