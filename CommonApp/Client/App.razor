@@ -1,11 +1,13 @@
-﻿<Router AppAssembly="@typeof(Program).Assembly">
+﻿@using System.Reflection
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="additionalAssemblies">
+
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
             <Authorizing>
                 Authorizing...
             </Authorizing>
             <NotAuthorized>
-                <RedirectToLogin />
+                <RedirectToLogin/>
             </NotAuthorized>
         </AuthorizeRouteView>
     </Found>
@@ -17,3 +19,12 @@
         </CascadingAuthenticationState>
     </NotFound>
 </Router>
+
+@code{
+
+    private Assembly[] additionalAssemblies = new[]
+    {
+        Assembly.Load("Employees.Client.dll"),
+    };
+
+}
