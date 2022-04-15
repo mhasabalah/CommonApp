@@ -7,5 +7,6 @@ global using MHFramework.Shared;
 global using Microsoft.AspNetCore.Components.Authorization;
 global using Microsoft.AspNetCore.Components.Web;
 global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-
+global using Blazored.Toast;
+global using Toolbelt.Blazor.Extensions.DependencyInjection;
 global using Radzen;
