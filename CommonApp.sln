@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domains", "Domains", "{0A82
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Employees", "Employees", "{3B2E96C6-6269-424B-95B5-05CDBFD1E6D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Client", "CommonApp\Domains\Employees\Employees.Client\Employees.Client.csproj", "{F8324CD5-B1E6-4282-B518-0E599EF2D9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Client", "CommonApp\Domains\Employees\Employees.Client\Employees.Client.csproj", "{F8324CD5-B1E6-4282-B518-0E599EF2D9BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Shared", "CommonApp\Domains\Employees\Employees.Shared\Employees.Shared.csproj", "{B741F911-E8FD-494F-A6FB-1D260273A84C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Shared", "CommonApp\Domains\Employees\Employees.Shared\Employees.Shared.csproj", "{B741F911-E8FD-494F-A6FB-1D260273A84C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees.Server", "CommonApp\Domains\Employees\Employees.Server\Employees.Server.csproj", "{9A3D715D-CC55-4E81-BC06-AFB7D25E8DFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Server", "CommonApp\Domains\Employees\Employees.Server\Employees.Server.csproj", "{9A3D715D-CC55-4E81-BC06-AFB7D25E8DFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
