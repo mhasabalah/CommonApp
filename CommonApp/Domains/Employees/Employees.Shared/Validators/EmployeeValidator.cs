@@ -1,7 +1,7 @@
 ﻿namespace Employees.Shared;
-public class EmployeeValidator : BaseSettingsValidator<EmployeeViewModel, EmployeeResources>, IEmployeeValidator
+public class EmployeeValidator : BaseSettingsValidator<EmployeeViewModel>
 {
-    public EmployeeValidator(IBaseLocalizer<EmployeeViewModel, EmployeeResources> localizer) : base(localizer)
+    public EmployeeValidator():base()
     {
         RuleFor(e => e.Age).GreaterThanOrEqualTo(15)
                            .WithMessage($"{nameof(EmployeeViewModel)} Age should be Greater Than Or Equal To 15");
