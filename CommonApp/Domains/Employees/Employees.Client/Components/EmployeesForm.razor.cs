@@ -10,7 +10,7 @@ public partial class EmployeesForm :IDisposable
 
     private string url = "api/employees";
 
-    private List<EmployeeViewModel> FilteredEmployees
+    private IEnumerable<EmployeeViewModel> FilteredEmployees
         => (employees ?? new List<EmployeeViewModel>())
             .Where(e => e.Name != null && e.Name.ToLower().Contains(SearchTerm.ToLower())).ToList();
 

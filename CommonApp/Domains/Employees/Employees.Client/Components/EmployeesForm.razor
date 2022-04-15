@@ -13,34 +13,62 @@
     </div>
 </div>
 
-<table class="table">
+<RadzenCard Style="margin-bottom: 200px; width: fit-content; min-width: 300px;" Class="mt-5 mx-auto">
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@FilteredEmployees" TItem="EmployeeViewModel" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="Name" Filterable="false" Title="ID" Frozen="true" Width="70px" TextAlign="TextAlign.Center" />
+        @*<RadzenDataGridColumn TItem="EmployeeViewModel" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="60px" >
+            <Template Context="data">
+            <RadzenImage Path="@data.Photo" style="width: 40px; height: 40px; border-radius: 8px;" />
+            </Template>
+            </RadzenDataGridColumn>*@
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="Name" Title="First Name" Frozen="true" Width="140px" />
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="BirthDate" Title="Birth Date" FormatString="{0:d}" Width="140px" />
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="Mobile" Title="Home Phone" Width="140px" />
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="Telephone" Title="Home Phone" Width="140px" />
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Property="Age" Title="Age" Width="140px" />
+        <RadzenDataGridColumn TItem="EmployeeViewModel" Title="Actions" Width="140px" Filterable="false" Sortable="false">
+            <Template Context="data">
+                <EmployeeEdit Employee="@data" />
+                <button type="button" class="btn btn-danger" @onclick="@(() => DeleteEmployee(data.Id))">Delete</button>
+                <EmployeeInfo Employee="@data" />
+            </Template>
+        </RadzenDataGridColumn>
+
+    </Columns>
+</RadzenDataGrid>
+</RadzenCard>
+
+@*<table class="table">
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Mobile</th>
-            <th>Age</th>
-            <th>Telephone</th>
-            <th>BirthDate</th>
-            <th>Action</th>
-        </tr>
+    <tr>
+    <th>Name</th>
+    <th>Mobile</th>
+    <th>Age</th>
+    <th>Telephone</th>
+    <th>BirthDate</th>
+    <th>Action</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var employee in FilteredEmployees ?? new())
-        {
-                <tr>
-                    <td>@employee.Name</td>
-                    <td>@employee.Mobile</td>
-                    <td>@employee.Age</td>
-                    <td>@employee.Telephone</td>
-                    <td>@employee.BirthDate.Value.ToString("MM/dd/yyyy")</td>
-                    <td>
-                        <div class="btn-group">
-                            <EmployeeEdit Employee="@employee" />
-                            <button type="button" class="btn btn-danger" @onclick="@(() => DeleteEmployee(employee.Id))">Delete</button>
-                            <EmployeeInfo Employee="@employee" />
-                        </div>
-                    </td>
-                </tr>
-        }
+    @foreach (var employee in FilteredEmployees ?? new())
+    {
+    <tr>
+    <td>@employee.Name</td>
+    <td>@employee.Mobile</td>
+    <td>@employee.Age</td>
+    <td>@employee.Telephone</td>
+    <td>@employee.BirthDate.Value.ToString("MM/dd/yyyy")</td>
+    <td>
+    <div class="btn-group">
+    <EmployeeEdit Employee="@employee" />
+    <button type="button" class="btn btn-danger" @onclick="@(() => DeleteEmployee(employee.Id))">Delete</button>
+    <EmployeeInfo Employee="@employee" />
+    </div>
+    </td>
+    </tr>
+    }
     </tbody>
-</table>
+    </table>*@
