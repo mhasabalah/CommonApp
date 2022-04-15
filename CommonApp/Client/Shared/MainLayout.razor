@@ -3,10 +3,10 @@
 @inject IdentityAuthenticationStateProvider authStateProvider
 
 
-<RadzenDialog/>
-<RadzenNotification/>
-<RadzenContextMenu/>
-<RadzenTooltip/>
+<RadzenDialog />
+<RadzenNotification />
+<RadzenContextMenu />
+<RadzenTooltip />
 
 <div class="page">
     <AuthorizeView>
@@ -18,6 +18,20 @@
 
             <div class="main">
                 <div class="top-row px-4">
+
+                        <RadzenProfileMenu>
+                            <Template>
+                                <RadzenGravatar Email="user@example.com">
+                                </RadzenGravatar>
+                            </Template>
+                            <ChildContent>
+                                <RadzenProfileMenuItem Text="Buttons" Path="buttons" Icon="account_circle"></RadzenProfileMenuItem>
+                                <RadzenProfileMenuItem Text="Menu" Path="menu" Icon="line_weight"></RadzenProfileMenuItem>
+                                <RadzenProfileMenuItem Text="FileInput" Path="fileinput" Icon="attach_file"></RadzenProfileMenuItem>
+                                <RadzenProfileMenuItem Text="Dialog" Path="dialog" Icon="perm_media"></RadzenProfileMenuItem>
+                                <RadzenProfileMenuItem Text="Notification" Path="notification" Icon="announcement"></RadzenProfileMenuItem>
+                            </ChildContent>
+                        </RadzenProfileMenu>
                     <button type="button" class="btn btn-link ml-md-auto" @onclick="@LogoutClick">Logout</button>
                 </div>
 
@@ -25,6 +39,7 @@
                     @Body
                 </div>
             </div>
+
         </Authorized>
         <NotAuthorized>
             @*Just render the body so that RedirectToLogin works*@
@@ -34,7 +49,7 @@
 </div>
 
 
-@code{
+@code {
 
     async Task LogoutClick()
     {
