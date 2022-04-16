@@ -1,5 +1,5 @@
 using Teams.Client;
-global using Groups.Client;
+using Groups.Client;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

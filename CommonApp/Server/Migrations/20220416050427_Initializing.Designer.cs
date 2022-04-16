@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CommonApp.Server.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220416011724_Team")]
-    partial class Team
+    [Migration("20220416050427_Initializing")]
+    partial class Initializing
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,20 @@ namespace CommonApp.Server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees", (string)null);
+                });
+
+            modelBuilder.Entity("Groups.Server.Group", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Groups", (string)null);
                 });
 
             modelBuilder.Entity("MHFramework.Server.ApplicationUser", b =>
