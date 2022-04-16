@@ -1,0 +1,74 @@
+@page "/sales"
+@attribute [Authorize]
+
+<PageTitle>Sale</PageTitle>
+
+<h3>Sale</h3>
+
+<div class="form-group">
+    <div class="w-75 input-group mb-3 ">
+        <input @bind-value="SearchTerm" @bind-value:event="oninput" type="text" class="form-control" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" @onclick="Clear">Clear</button>
+        <SaleCreate />
+    </div>
+</div>
+
+<RadzenCard Style="margin-bottom: 200px; width: fit-content; min-width: 300px;" Class="mt-5 mx-auto">
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@FilteredSales" TItem="SaleViewModel" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="Name" Filterable="false" Title="ID" Frozen="true" Width="70px" TextAlign="TextAlign.Center" />
+        @*<RadzenDataGridColumn TItem="SaleViewModel" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="60px" >
+            <Template Context="data">
+            <RadzenImage Path="@data.Photo" style="width: 40px; height: 40px; border-radius: 8px;" />
+            </Template>
+            </RadzenDataGridColumn>*@
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="Name" Title="First Name" Frozen="true" Width="140px" />
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="BirthDate" Title="Birth Date" FormatString="{0:d}" Width="140px" />
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="Mobile" Title="Home Phone" Width="140px" />
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="Telephone" Title="Home Phone" Width="140px" />
+        <RadzenDataGridColumn TItem="SaleViewModel" Property="Age" Title="Age" Width="140px" />
+        <RadzenDataGridColumn TItem="SaleViewModel" Title="Actions" Width="140px" Filterable="false" Sortable="false">
+            <Template Context="data">
+                <SaleEdit Sale="@data" />
+                <button type="button" class="btn btn-danger" @onclick="@(() => DeleteSale(data.Id))">Delete</button>
+                <SaleInfo Sale="@data" />
+            </Template>
+        </RadzenDataGridColumn>
+
+    </Columns>
+</RadzenDataGrid>
+</RadzenCard>
+
+@*<table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Mobile</th>
+    <th>Age</th>
+    <th>Telephone</th>
+    <th>BirthDate</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var sale in FilteredSales ?? new())
+    {
+    <tr>
+    <td>@sale.Name</td>
+    <td>@sale.Mobile</td>
+    <td>@sale.Age</td>
+    <td>@sale.Telephone</td>
+    <td>@sale.BirthDate.Value.ToString("MM/dd/yyyy")</td>
+    <td>
+    <div class="btn-group">
+    <SaleEdit Sale="@sale" />
+    <button type="button" class="btn btn-danger" @onclick="@(() => DeleteSale(sale.Id))">Delete</button>
+    <SaleInfo Sale="@sale" />
+    </div>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>*@

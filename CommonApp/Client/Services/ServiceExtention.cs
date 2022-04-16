@@ -1,9 +1,12 @@
-﻿namespace CommonApp.Client;
+﻿
+
+namespace CommonApp.Client;
 public static class ServiceExtention
 {
     public static void ConfigureFluentValidationServices(this IServiceCollection services)
     {
         services.AddScoped<IValidator<EmployeeViewModel>, EmployeeValidator>();
+        services.AddScoped<IValidator<TeamViewModel>, TeamValidator>();
 
     }
     public static void ConfigureAuthentication(this IServiceCollection services, IWebAssemblyHostEnvironment hostEnvironment)

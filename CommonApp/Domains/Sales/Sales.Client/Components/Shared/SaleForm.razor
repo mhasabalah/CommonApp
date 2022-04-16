@@ -1,0 +1,54 @@
+@if (Sale != null)
+{
+    <EditForm Model="Sale" id="@FormId" OnValidSubmit="OnValidSubmit">
+        <FluentValidationValidator/>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Sale.Name" />
+                <ValidationMessage For="@(() => Sale.Name)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Sale.Mobile" />
+                <ValidationMessage For="@(() => Sale.Mobile)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telephone">Telephone</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Sale.Telephone" />
+                <ValidationMessage For="@(() => Sale.Telephone)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <div>
+                <InputNumber class="form-control" disabled="@IsDisabled" @bind-Value="@Sale.Age" />
+                <ValidationMessage For="@(() => Sale.Age)" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="BirthDate">Birth Date</label>
+            <div>
+                <InputDate class="form-control" disabled="@IsDisabled" @bind-Value="@Sale.BirthDate" />
+                <ValidationMessage For="@(() => Sale.BirthDate)" />
+            </div>
+        </div>
+        <br />
+    </EditForm>
+}
+@code {
+    [Parameter] public SaleViewModel Sale { get; set; }
+    [Parameter] public string FormId { get; set; }
+
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    [Parameter] public bool IsDisabled { get; set; } = false;
+}

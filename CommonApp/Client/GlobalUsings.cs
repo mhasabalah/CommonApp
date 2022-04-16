@@ -10,3 +10,4 @@ global using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 global using Blazored.Toast;
 global using Toolbelt.Blazor.Extensions.DependencyInjection;
 global using Radzen;
+global using Teams.Shared;

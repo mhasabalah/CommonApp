@@ -5,4 +5,5 @@ global using Microsoft.EntityFrameworkCore;
 global using AutoMapper;
 global using Employees.Server;
 global using Employees.Shared;
-
+global using Teams.Server;
+global using Teams.Shared;
