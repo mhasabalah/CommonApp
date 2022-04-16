@@ -1,0 +1,32 @@
+@if (Team != null)
+{
+    <EditForm Model="Team" id="@FormId" OnValidSubmit="OnValidSubmit">
+        <FluentValidationValidator/>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Team.Name" />
+                <ValidationMessage For="@(() => Team.Name)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="teamColor">Team Color</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Team.TeamColor" />
+                <ValidationMessage For="@(() => Team.TeamColor)" />
+            </div>
+        </div>
+
+        <br />
+    </EditForm>
+}
+@code {
+    [Parameter] public TeamViewModel Team { get; set; }
+    [Parameter] public string FormId { get; set; }
+
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    [Parameter] public bool IsDisabled { get; set; } = false;
+}

@@ -1,0 +1,71 @@
+@page "/teams"
+@attribute [Authorize]
+
+<PageTitle>Team</PageTitle>
+
+<h3>Team</h3>
+
+<div class="form-group">
+    <div class="w-75 input-group mb-3 ">
+        <input @bind-value="SearchTerm" @bind-value:event="oninput" type="text" class="form-control" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" @onclick="Clear">Clear</button>
+        <TeamCreate />
+    </div>
+</div>
+
+<RadzenCard Style="margin-bottom: 200px; width: fit-content; min-width: 300px;" Class="mt-5 mx-auto">
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="@FilteredTeams" TItem="TeamViewModel" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or">
+    <Columns>
+        <RadzenDataGridColumn TItem="TeamViewModel" Property="Name" Filterable="false" Title="ID" Frozen="true" Width="70px" TextAlign="TextAlign.Center" />
+        @*<RadzenDataGridColumn TItem="TeamViewModel" Title="Photo" Frozen="true" Sortable="false" Filterable="false" Width="60px" >
+            <Template Context="data">
+            <RadzenImage Path="@data.Photo" style="width: 40px; height: 40px; border-radius: 8px;" />
+            </Template>
+            </RadzenDataGridColumn>*@
+        <RadzenDataGridColumn TItem="TeamViewModel" Property="Name" Title="Name" Frozen="true" Width="140px" />
+        <RadzenDataGridColumn TItem="TeamViewModel" Property="TeamColor" Title="Team Color" Width="140px" />
+        <RadzenDataGridColumn TItem="TeamViewModel" Title="Actions" Width="140px" Filterable="false" Sortable="false">
+            <Template Context="data">
+                <TeamEdit Team="@data" />
+                <button type="button" class="btn btn-danger" @onclick="@(() => DeleteTeam(data.Id))">Delete</button>
+                <TeamInfo Team="@data" />
+            </Template>
+        </RadzenDataGridColumn>
+
+    </Columns>
+</RadzenDataGrid>
+</RadzenCard>
+
+@*<table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Mobile</th>
+    <th>Age</th>
+    <th>Telephone</th>
+    <th>BirthDate</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var team in FilteredTeams ?? new())
+    {
+    <tr>
+    <td>@team.Name</td>
+    <td>@team.Mobile</td>
+    <td>@team.Age</td>
+    <td>@team.Telephone</td>
+    <td>@team.BirthDate.Value.ToString("MM/dd/yyyy")</td>
+    <td>
+    <div class="btn-group">
+    <TeamEdit Team="@team" />
+    <button type="button" class="btn btn-danger" @onclick="@(() => DeleteTeam(team.Id))">Delete</button>
+    <TeamInfo Team="@team" />
+    </div>
+    </td>
+    </tr>
+    }
+    </tbody>
+    </table>*@

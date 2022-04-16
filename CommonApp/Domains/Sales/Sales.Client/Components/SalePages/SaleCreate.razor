@@ -1,0 +1,10 @@
+<button class="btn btn-primary" @onclick="() => modal.Open()">New Sale</button>
+<ModalForm @ref="modal">
+    <Title>Create new @typeof(SaleViewModel).Name</Title>
+    <Body>
+        <SaleForm Sale="sale" OnValidSubmit="Create" FormId="@formId"/>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>
+    </Footer>
+</ModalForm>

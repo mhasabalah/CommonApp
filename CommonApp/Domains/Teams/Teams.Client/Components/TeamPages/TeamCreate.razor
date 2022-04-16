@@ -1,0 +1,10 @@
+<button class="btn btn-primary" @onclick="() => modal.Open()">New Team</button>
+<ModalForm @ref="modal">
+    <Title>Create new Team</Title>
+    <Body>
+        <TeamForm Team="team" OnValidSubmit="Create" FormId="@formId"/>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>
+    </Footer>
+</ModalForm>
