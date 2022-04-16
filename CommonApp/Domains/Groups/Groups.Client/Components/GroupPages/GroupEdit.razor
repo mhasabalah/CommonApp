@@ -1,0 +1,11 @@
+<button class="btn btn-success" @onclick="() => modal.Open()">Edit</button>
+
+<ModalForm @ref="modal">
+    <Title>Edit @nameof(Group) @Group.Name</Title>
+    <Body>
+        <GroupForm Group="Group" OnValidSubmit="Edit" FormId="@formId"></GroupForm>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>
+    </Footer>
+</ModalForm>

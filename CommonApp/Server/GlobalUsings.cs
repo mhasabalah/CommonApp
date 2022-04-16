@@ -7,3 +7,5 @@ global using Employees.Server;
 global using Employees.Shared;
 global using Teams.Server;
 global using Teams.Shared;
+global using Groups.Shared;
+global using Groups.Server;

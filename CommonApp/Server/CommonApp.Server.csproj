@@ -18,6 +18,7 @@
 		<ProjectReference Include="..\Client\CommonApp.Client.csproj" />
 		<ProjectReference Include="..\Domains\Employees\Employees.Server\Employees.Server.csproj" />
 		<ProjectReference Include="..\Domains\Teams\Teams.Server\Teams.Server.csproj" />
+		<ProjectReference Include="..\Domains\Groups\Groups.Server\Groups.Server.csproj" />
 		<ProjectReference Include="..\Shared\Shared.Server\Shared.Server.csproj" />
 	</ItemGroup>
 

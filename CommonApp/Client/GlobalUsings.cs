@@ -1,6 +1,7 @@
 ﻿global using CommonApp.Client;
 global using Employees.Client;
 global using Employees.Shared;
+global using Groups.Shared;
 global using FluentValidation;
 global using MHFramework.Client;
 global using MHFramework.Shared;

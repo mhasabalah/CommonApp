@@ -5,5 +5,6 @@ public class MapperProfile : Profile
     {
         CreateMap<Employee, EmployeeViewModel>().ReverseMap();
         CreateMap<Team, TeamViewModel>().ReverseMap();
+        CreateMap<Group, GroupViewModel>().ReverseMap();
     }
 }

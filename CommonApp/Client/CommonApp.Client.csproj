@@ -23,6 +23,7 @@
 		<ProjectReference Include="..\Domains\Employees\Employees.Client\Employees.Client.csproj" />
 		<ProjectReference Include="..\Domains\Teams\Teams.Client\Teams.Client.csproj" />
 		<ProjectReference Include="..\Domains\Teams\Teams.Shared\Teams.Shared.csproj" />
+		<ProjectReference Include="..\Domains\Groups\Groups.Client\Groups.Client.csproj" />
 		<ProjectReference Include="..\Shared\Shared.Client\Shared.Client.csproj" />
 	</ItemGroup>
 

@@ -1,0 +1,10 @@
+<button class="btn btn-primary" @onclick="() => modal.Open()">New Group</button>
+<ModalForm @ref="modal">
+    <Title>Create new @typeof(GroupViewModel).Name</Title>
+    <Body>
+        <GroupForm Group="group" OnValidSubmit="Create" FormId="@formId"/>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>
+    </Footer>
+</ModalForm>

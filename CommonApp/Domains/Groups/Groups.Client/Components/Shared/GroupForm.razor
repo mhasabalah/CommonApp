@@ -1,0 +1,23 @@
+@if (Group != null)
+{
+    <EditForm Model="Group" id="@FormId" OnValidSubmit="OnValidSubmit">
+        <FluentValidationValidator/>
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <div>
+                <InputText class="form-control" disabled="@IsDisabled" @bind-Value="@Group.Name" />
+                <ValidationMessage For="@(() => Group.Name)" />
+            </div>
+        </div>
+        <br />
+    </EditForm>
+}
+@code {
+    [Parameter] public GroupViewModel Group { get; set; }
+    [Parameter] public string FormId { get; set; }
+
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    [Parameter] public bool IsDisabled { get; set; } = false;
+}
