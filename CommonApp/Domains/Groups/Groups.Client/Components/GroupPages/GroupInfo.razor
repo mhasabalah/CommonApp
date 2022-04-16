@@ -1,0 +1,11 @@
+<button class="btn btn-info" @onclick="() => modal.Open()"> <i class="fa fa-info"></i> </button>
+
+<ModalForm @ref="modal">
+    <Title>@nameof(Group) @Group.Name details</Title>
+    <Body>
+        <GroupForm Group="Group" IsDisabled="true" OnValidSubmit="CloseForm"></GroupForm>
+    </Body>
+    <Footer>
+        <DialogTypeComponent Close="@modal.Close" ShowSaveButton="false"></DialogTypeComponent>
+    </Footer>
+</ModalForm>

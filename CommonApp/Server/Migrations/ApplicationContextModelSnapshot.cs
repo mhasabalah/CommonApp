@@ -50,6 +50,20 @@ namespace CommonApp.Server.Migrations
                     b.ToTable("Employees", (string)null);
                 });
 
+            modelBuilder.Entity("Groups.Server.Group", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Groups", (string)null);
+                });
+
             modelBuilder.Entity("MHFramework.Server.ApplicationUser", b =>
                 {
                     b.Property<Guid>("Id")
