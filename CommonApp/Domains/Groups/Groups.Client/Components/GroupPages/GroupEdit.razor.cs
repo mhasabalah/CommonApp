@@ -5,7 +5,7 @@ public partial class GroupEdit
 {
     [Parameter] public GroupViewModel? Group { get; set; }
 
-    [Inject] public GroupsAppObserver _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
     [Inject] public HttpClient _http { get; set; }
     
     private ModalForm modal { get; set; }
@@ -15,7 +15,7 @@ public partial class GroupEdit
     private async Task Edit()
     {
         await _http.PutAsJsonAsync($"{url}", Group);
-        _appObserver.GroupHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

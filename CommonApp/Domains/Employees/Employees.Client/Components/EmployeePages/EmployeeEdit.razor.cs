@@ -13,7 +13,7 @@ public partial class EmployeeEdit
     private async Task Edit()
     {
         await _http.PutAsJsonAsync($"{url}", Employee);
-        _appObserver.EmployeeHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

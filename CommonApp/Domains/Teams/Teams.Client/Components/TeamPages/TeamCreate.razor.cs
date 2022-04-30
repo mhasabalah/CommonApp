@@ -2,7 +2,7 @@ namespace Teams.Client.TeamPages;
 public partial class TeamCreate
 {
     [Inject] public HttpClient _http { get; set; }
-    [Inject] public AppObserverTeam _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
 
     private ModalForm modal { get; set; }
 
@@ -14,7 +14,7 @@ public partial class TeamCreate
     {
         await _http.PostAsJsonAsync(url, team);
         team = new();
-        _appObserver.TeamHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

@@ -16,7 +16,7 @@ public partial class EmployeesForm :IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        _appObserver.OnEmployeeChanged += InvokeStateHasChanged();
+        _appObserver.OnSelectedNodeChanged += InvokeStateHasChanged();
 
         await LoadEmployees();
     }
@@ -41,6 +41,6 @@ public partial class EmployeesForm :IDisposable
         employees = await _http.GetFromJsonAsync<List<EmployeeViewModel>>(url);
     }
 
-    public void Dispose() => _appObserver.OnEmployeeChanged -= InvokeStateHasChanged();
+    public void Dispose() => _appObserver.OnSelectedNodeChanged -= InvokeStateHasChanged();
 
 }

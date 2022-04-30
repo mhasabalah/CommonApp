@@ -14,7 +14,7 @@ public partial class EmployeeCreate
     {
         await _http.PostAsJsonAsync(url, employee);
         employee = new();
-        _appObserver.EmployeeHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

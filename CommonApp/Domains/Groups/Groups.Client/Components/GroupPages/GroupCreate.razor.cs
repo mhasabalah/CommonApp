@@ -4,7 +4,7 @@ namespace Groups.Client.GroupPages;
 public partial class GroupCreate
 {
     [Inject] public HttpClient _http { get; set; }
-    [Inject] public GroupsAppObserver _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
 
     private ModalForm modal { get; set; }
 
@@ -16,7 +16,7 @@ public partial class GroupCreate
     {
         await _http.PostAsJsonAsync(url, group);
         group = new();
-        _appObserver.GroupHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

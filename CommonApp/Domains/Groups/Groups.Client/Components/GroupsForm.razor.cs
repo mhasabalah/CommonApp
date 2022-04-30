@@ -2,7 +2,7 @@ namespace Groups.Client;
 public partial class GroupsForm :IDisposable
 {
     [Inject] public HttpClient _http { get; set; }
-    [Inject] public GroupsAppObserver _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
 
     string SearchTerm { get; set; } = string.Empty;
 
@@ -16,7 +16,7 @@ public partial class GroupsForm :IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        _appObserver.OnGroupChanged += InvokeStateHasChanged();
+        _appObserver.OnSelectedNodeChanged += InvokeStateHasChanged();
 
         await LoadGroups();
     }
@@ -41,6 +41,6 @@ public partial class GroupsForm :IDisposable
         groups = await _http.GetFromJsonAsync<List<GroupViewModel>>(url);
     }
 
-    public void Dispose() => _appObserver.OnGroupChanged -= InvokeStateHasChanged();
+    public void Dispose() => _appObserver.OnSelectedNodeChanged -= InvokeStateHasChanged();
 
 }

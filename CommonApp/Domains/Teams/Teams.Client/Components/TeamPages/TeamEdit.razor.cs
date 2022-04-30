@@ -3,7 +3,7 @@ public partial class TeamEdit
 {
     [Parameter] public TeamViewModel? Team { get; set; }
 
-    [Inject] public AppObserverTeam _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
     [Inject] public HttpClient _http { get; set; }
     
     private ModalForm modal { get; set; }
@@ -13,7 +13,7 @@ public partial class TeamEdit
     private async Task Edit()
     {
         await _http.PutAsJsonAsync($"{url}", Team);
-        _appObserver.TeamHasChanged();
+        _appObserver.SelectedNodeHasChanged();
 
         modal.Close();
     }

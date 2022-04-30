@@ -2,7 +2,7 @@ namespace Teams.Client;
 public partial class TeamsForm :IDisposable
 {
     [Inject] public HttpClient _http { get; set; }
-    [Inject] public AppObserverTeam _appObserver { get; set; }
+    [Inject] public AppObserver _appObserver { get; set; }
 
     string SearchTerm { get; set; } = string.Empty;
 
@@ -16,7 +16,7 @@ public partial class TeamsForm :IDisposable
 
     protected override async Task OnInitializedAsync()
     {
-        _appObserver.OnTeamChanged += InvokeStateHasChanged();
+        _appObserver.OnSelectedNodeChanged += InvokeStateHasChanged();
 
         await LoadTeams();
     }
@@ -41,6 +41,6 @@ public partial class TeamsForm :IDisposable
         teams = await _http.GetFromJsonAsync<List<TeamViewModel>>(url);
     }
 
-    public void Dispose() => _appObserver.OnTeamChanged -= InvokeStateHasChanged();
+    public void Dispose() => _appObserver.OnSelectedNodeChanged -= InvokeStateHasChanged();
 
 }
