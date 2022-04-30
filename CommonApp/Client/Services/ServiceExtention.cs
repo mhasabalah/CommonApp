@@ -3,7 +3,7 @@ public static class ServiceExtention
 {
     public static void ConfigureFluentValidationServices(this IServiceCollection services)
     {
-        
+        services.AddLocalization();
         services.AddScoped(typeof(IBaseLocalizer<,>), typeof(BaseLocalizer<,>));
         services.AddScoped<IValidator<EmployeeViewModel>, EmployeeValidator>();
         services.AddScoped<IValidator<TeamViewModel>, TeamValidator>();

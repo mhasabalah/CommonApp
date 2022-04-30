@@ -15,6 +15,7 @@ builder.Services.AddDbContext<ApplicationContext>(option =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+
 builder.Services.AddAutoMapper(config =>
 {
     config.AllowNullCollections = true;
