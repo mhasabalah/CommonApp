@@ -1,10 +1,5 @@
 namespace Teams.Shared;
-public class TeamValidator : BaseSettingsValidator<TeamViewModel>
+public class TeamValidator : BaseSettingsValidator<TeamViewModel, TeamResources>
 {
-    public TeamValidator():base()
-    {
-        
-        RuleFor(e => e.Name).NotNull().NotEmpty()
-                              .WithMessage($"{nameof(TeamViewModel)}  Name is required");
-    }
+    public TeamValidator(IBaseLocalizer<TeamViewModel, TeamResources> localizer) : base(localizer) { }
 }
