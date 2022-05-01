@@ -1,19 +1,20 @@
 namespace Teams.Client.TeamPages;
 public partial class TeamCreate
 {
-    [Inject] public HttpClient _http { get; set; }
     [Inject] public AppObserver _appObserver { get; set; }
+    
+    [Parameter] public TeamViewModel? TeamViewModel { get; set; } = new();
+
 
     private ModalForm modal { get; set; }
 
-    TeamViewModel team = new();
-    private string url = "api/teams";
     private string formId = "AddTeam";
 
     private async Task Create()
     {
-        await _http.PostAsJsonAsync(url, team);
-        team = new();
+        await _teamHttpService.PostAsync("api/teams", TeamViewModel);
+        _toastService.ShowSuccess("Team Added Successfuly");
+
         _appObserver.SelectedNodeHasChanged();
 
         modal.Close();

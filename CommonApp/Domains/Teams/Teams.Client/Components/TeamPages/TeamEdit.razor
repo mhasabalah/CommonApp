@@ -1,9 +1,9 @@
 <button class="btn btn-success" @onclick="() => modal.Open()">Edit</button>
 
 <ModalForm @ref="modal">
-    <Title>Edit @nameof(Team) @Team.Name</Title>
+    <Title>Edit @nameof(TeamViewModel) @TeamViewModel.Name</Title>
     <Body>
-        <TeamForm Team="Team" OnValidSubmit="Edit" FormId="@formId"></TeamForm>
+        <TeamForm Team="TeamViewModel" OnValidSubmit="Edit" FormId="@formId"></TeamForm>
     </Body>
     <Footer>
         <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>

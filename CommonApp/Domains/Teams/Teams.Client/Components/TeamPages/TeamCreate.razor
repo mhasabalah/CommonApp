@@ -2,7 +2,7 @@
 <ModalForm @ref="modal">
     <Title>Create new Team</Title>
     <Body>
-        <TeamForm Team="team" OnValidSubmit="Create" FormId="@formId"/>
+        <TeamForm Team="TeamViewModel" OnValidSubmit="Create" FormId="@formId"/>
     </Body>
     <Footer>
         <DialogTypeComponent Close="@modal.Close" ShowSaveButton="true" FormId="@formId"></DialogTypeComponent>

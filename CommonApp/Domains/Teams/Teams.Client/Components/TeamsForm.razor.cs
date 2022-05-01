@@ -36,6 +36,8 @@ public partial class TeamsForm :IDisposable
 
     private async Task DeleteTeam(Guid? id)
     {
+        //CityViewModel = await _cityHttpService.DeleteAsync($"/api/cities/{CityViewModel.Id}");
+        //successMessage = "City Deleted Successfuly";
         var deleteUrl = $"{url}/{id}";
         await _http.DeleteAsync(deleteUrl);
         teams = await _http.GetFromJsonAsync<List<TeamViewModel>>(url);

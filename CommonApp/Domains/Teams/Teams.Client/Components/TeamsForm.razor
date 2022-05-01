@@ -28,7 +28,7 @@
         <RadzenDataGridColumn TItem="TeamViewModel" Property="TeamColor" Title="Team Color" Width="140px" />
         <RadzenDataGridColumn TItem="TeamViewModel" Title="Actions" Width="140px" Filterable="false" Sortable="false">
             <Template Context="data">
-                <TeamEdit Team="@data" />
+                <TeamEdit TeamViewModel="@data" />
                 <button type="button" class="btn btn-danger" @onclick="@(() => DeleteTeam(data.Id))">Delete</button>
                 <TeamInfo Team="@data" />
             </Template>
