@@ -37,35 +37,3 @@
     </Columns>
 </RadzenDataGrid>
 </RadzenCard>
-
-@*<table class="table">
-    <thead>
-    <tr>
-    <th>Name</th>
-    <th>Mobile</th>
-    <th>Age</th>
-    <th>Telephone</th>
-    <th>BirthDate</th>
-    <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var team in FilteredTeams ?? new())
-    {
-    <tr>
-    <td>@team.Name</td>
-    <td>@team.Mobile</td>
-    <td>@team.Age</td>
-    <td>@team.Telephone</td>
-    <td>@team.BirthDate.Value.ToString("MM/dd/yyyy")</td>
-    <td>
-    <div class="btn-group">
-    <TeamEdit Team="@team" />
-    <button type="button" class="btn btn-danger" @onclick="@(() => DeleteTeam(team.Id))">Delete</button>
-    <TeamInfo Team="@team" />
-    </div>
-    </td>
-    </tr>
-    }
-    </tbody>
-    </table>*@

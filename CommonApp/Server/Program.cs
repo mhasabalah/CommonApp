@@ -1,7 +1,12 @@
+using Blazored.Toast;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container. 
+builder.Services.AddBlazoredToast();
+
 builder.Services.AddInstallerFromReferancedAssemblies(builder.Configuration, typeof(Program).Assembly, "*.Server.dll");
+
 
 builder.Services.AddDbContext<ApplicationContext>(option =>
 {

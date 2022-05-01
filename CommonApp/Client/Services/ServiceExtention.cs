@@ -20,6 +20,7 @@ public static class ServiceExtention
     public static void ConfigureHttpServices(this IServiceCollection services)
     {
         services.AddScoped(typeof(IHttpService<>), typeof(HttpService<>));
+        //services.AddScoped<HttpInterceptorService>();        
         services.AddHttpClientInterceptor();
     }
 
